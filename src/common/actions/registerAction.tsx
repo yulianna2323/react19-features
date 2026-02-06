@@ -24,9 +24,16 @@ export async function registerAction(
             values: { email },
         };
     }
-
-    // simulate async
-    await new Promise((r) => setTimeout(r, 500));
+    try {
+        // simulate async
+        //await new Promise((r, reject) => setTimeout(reject, 500));
+        await new Promise((r) => setTimeout(r, 500));
+    } catch (err) {
+        return {
+            ...prevState,
+            errors: { email: 'Something went wrong' },
+        };
+    }
 
     return {
         values: {

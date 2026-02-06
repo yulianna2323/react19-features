@@ -6,9 +6,6 @@ type Errors = {
 };
 
 export default function RegisterForm() {
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
-
     const [errors, setErrors] = useState<Errors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -63,22 +60,13 @@ export default function RegisterForm() {
 
             <div className="form-field">
                 <label>Email</label>
-                <input
-                    name="email"
-                    defaultValue={''}
-                    // onChange={(e) => setEmail(e.target.value)}
-                />
+                <input name="email" defaultValue={''} />
                 {errors.email && <p className="form-error">{errors.email}</p>}
             </div>
 
             <div className="form-field">
                 <label>Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    defaultValue={''}
-                    // onChange={(e) => setPassword(e.target.value)}
-                />
+                <input type="password" name="password" defaultValue={''} />
                 {errors.password && (
                     <p className="form-error">{errors.password}</p>
                 )}

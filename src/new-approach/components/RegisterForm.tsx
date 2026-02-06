@@ -15,10 +15,15 @@ export default function RegisterForm() {
     );
 
     return (
-        <form className="register-form" action={formAction}>
+        <form
+            autoComplete={'off'}
+            className="register-form"
+            action={formAction}
+        >
             <div className="form-field">
                 <label>Email</label>
                 <input
+                    type="email"
                     name="email"
                     defaultValue={state?.values?.email ?? ''}
                     placeholder="Email"

@@ -6,15 +6,12 @@ interface Props {
     isActive: boolean;
 }
 export default function TabButton({ action, children, isActive }: Props) {
-    // const [isPending, startTransition] = useTransition();
     if (isActive) {
-        return <b>{children}</b>;
+        return <b className="tab-active">{children}</b>;
     }
-    // if (isPending) {
-    //     return <b className="pending">{children}</b>;
-    // }
     return (
         <button
+            className="tab-button"
             onClick={() => {
                 action();
             }}

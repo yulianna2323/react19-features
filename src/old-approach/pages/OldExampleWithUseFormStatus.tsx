@@ -18,40 +18,10 @@ export default function OldExampleWithUseFormStatus() {
     // Derived state for city list
     const cityList = country ? citiesByCountry[country] || [] : [];
 
-    async function handleCountryChange(
-        e: React.ChangeEvent<HTMLSelectElement>,
-    ) {
+    function handleCountryChange(e: React.ChangeEvent<HTMLSelectElement>) {
         const newCountry = e.target.value;
         setCountry(newCountry);
         setCity(''); // Reset city when country changes
-
-        // Simulate the "auto-save" or action behavior on change if desired,
-        // but typically in React 18 controlled forms, we just update state.
-        // If we want to mimic the "action" behavior of the new example which submits on change:
-
-        const formData = new FormData();
-        formData.append('country', newCountry);
-        formData.append('city', '');
-
-        setIsPending(true);
-        try {
-            // We have to manually call the action and handle the result
-            const result = await saveLocation(
-                { country: newCountry, city: '' },
-                formData,
-            );
-            if (result.error) {
-                setError(result.error);
-                setSuccess('');
-            } else {
-                setSuccess(result.success);
-                setError('');
-            }
-        } catch (err) {
-            setError('Something went wrong');
-        } finally {
-            setIsPending(false);
-        }
     }
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -71,8 +41,6 @@ export default function OldExampleWithUseFormStatus() {
                 setError(result.error);
             } else {
                 setSuccess(result.success);
-                // In React 18, we might manually reset or keep state depending on requirements.
-                // The new example keeps the state.
             }
         } catch (err) {
             setError('Failed to save');

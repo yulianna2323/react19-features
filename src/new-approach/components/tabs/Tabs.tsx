@@ -6,7 +6,6 @@ import ContactTab from './ContactTab';
 
 export default function TabContainer() {
     const [tab, setTab] = useState('about');
-    console.log(6746747, tab);
     return (
         <>
             <TabButton

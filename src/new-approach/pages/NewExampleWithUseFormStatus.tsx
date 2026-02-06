@@ -26,7 +26,6 @@ export default function LocationForm() {
         const formData = new FormData(e.currentTarget);
         startTransition(() => formAction(formData));
     }
-    console.log(90798798, state);
     return (
         <div>
             <h2>React 19</h2>
